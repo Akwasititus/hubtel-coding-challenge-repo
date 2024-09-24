@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   }
 
   void showCircularProgressIndicator() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 5));
     setState(() {
       isLoading = false;
     });
