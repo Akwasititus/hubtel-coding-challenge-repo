@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_date.dart';
+import '../widgets/custom_history_card.dart';
+import '../widgets/custome_search.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -32,9 +36,21 @@ class _HomeState extends State<Home> {
         body: isLoading ?
             const Center(child: CircularProgressIndicator())
        : Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _tabBarToggle(),
             const Divider(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(child: CustomnSearch()),
+                  Icon(Icons.filter_list_sharp,size: 40,)
+                ],
+              ),
+            ),
+            const CustomDate(),
+            const CustomHistoryCard()
           ],
         ),
       ),
@@ -45,9 +61,9 @@ class _HomeState extends State<Home> {
     return Container(
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+      decoration:  BoxDecoration(
+          color: Colors.blueGrey[100],
+          borderRadius: const BorderRadius.all(Radius.circular(20))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -61,7 +77,7 @@ class _HomeState extends State<Home> {
               height: 60,
               width: 150,
               decoration: BoxDecoration(
-                  color: isToggleHistorySelected ? Colors.white : Colors.grey,
+                  color: isToggleHistorySelected ? Colors.white : Colors.blueGrey[100],
                   borderRadius: const BorderRadius.all(Radius.circular(20))),
               child: Center(
                   child: Text(
@@ -84,7 +100,7 @@ class _HomeState extends State<Home> {
               height: 70,
               width: 200,
               decoration: BoxDecoration(
-                  color: !isToggleHistorySelected ? Colors.white : Colors.grey,
+                  color: !isToggleHistorySelected ? Colors.white :  Colors.blueGrey[100],
                   borderRadius: const BorderRadius.all(Radius.circular(20))),
               child: Center(
                   child: Text(
