@@ -141,9 +141,11 @@ class CustomHistoryCard extends StatelessWidget {
                         ),
                          Text(cardInfo.identityAlias),
                         Expanded(child: Container()),
-                        const Icon(
+                         Icon(
                           Icons.star,
-                          color: Colors.yellow,
+                          color: cardInfo.status == "successful"
+                              ? Colors.yellow
+                              : Colors.white,
                         )
                       ],
                     )
