@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: isLoading ?
             const Center(child: CircularProgressIndicator())
        : Column(
@@ -50,8 +51,29 @@ class _HomeState extends State<Home> {
               ),
             ),
             const CustomDate(),
-            const CustomHistoryCard()
+            const CustomHistoryCard(),
+            const CustomDate(),
           ],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.green,
+          onPressed: () {},
+          label: const Row(
+            children: [
+              Icon(
+                Icons.add_circle_rounded,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "SEND NEW",
+                style: TextStyle(color: Colors.white),
+              )
+            ],
+          ),
         ),
       ),
     );

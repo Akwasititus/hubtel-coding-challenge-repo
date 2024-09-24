@@ -21,8 +21,8 @@ class CustomHistoryCard extends StatelessWidget {
                 // height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(width: 2, color: Colors.black),
+                    color: Colors.white,
+                    border: Border.all(width: 2, color: Colors.grey),
                     borderRadius: BorderRadius.circular(20)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -85,7 +85,9 @@ class CustomHistoryCard extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Icon(
-                                    Icons.check_circle,
+                                    cardInfo.status == "successful"
+                                        ? Icons.check_circle
+                                        : Icons.cancel,
                                     color: cardInfo.status == "successful"
                                         ? Colors.green
                                         : Colors.red,
@@ -117,27 +119,27 @@ class CustomHistoryCard extends StatelessWidget {
                           height: 50,
                           width: 50,
                           decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: Colors.blue.shade100,
                               borderRadius: BorderRadius.circular(20)),
                           child: const Icon(Icons.person),
                         ),
                         const SizedBox(width: 10),
-                        const Text("personal"),
+                         Text(cardInfo.identity),
                         const SizedBox(
                           width: 10,
                         ),
                         Container(
                           // child: Icon(Icons.person),
-                          height: 10,
-                          width: 10,
+                          height: 7,
+                          width: 7,
                           decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: cardInfo.color,
                               borderRadius: BorderRadius.circular(20)),
                         ),
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text("Cool your heart wai"),
+                         Text(cardInfo.identityAlias),
                         Expanded(child: Container()),
                         const Icon(
                           Icons.star,
